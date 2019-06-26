@@ -89,15 +89,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    provided files('lib/android.jar')
-    provided files('lib/original-android --2.3.3.jar')
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile rootProject.ext.dependencies.appcompat
     testCompile 'junit:junit:4.12'
-    //    版本升级的时候,需要用到下载问题,使用xutils下载,不会出现解析包错误,不会导致下载的过程中数据丢失
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'org.xutils:xutils:3.5.0'
-    compile project(':gameaircraft')
-    compile project(':lib_bugly')
 }
 
