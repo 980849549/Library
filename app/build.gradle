@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构  bugly
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+    signingConfigs {
+        debug {
+            keyAlias 'test.keystore'
+            keyPassword '1234qwer'
+            storeFile file('android.keystore')
+            storePassword '1234qwer'
+        }
+        release {
+            keyAlias 'test.keystore'
+            keyPassword '1234qwer'
+            storeFile file('android.keystore')
+            storePassword '1234qwer'
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+        }
+    }
+
+    productFlavors {
+        OPPO商店 {}
+        应用宝 {}
+        华为 {}
+        百度 {}
+        手机360 {}
+        PP助手 {}
+        三星 {}
+        安智 {}
+        VIVO {}
+        金立 {}
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+    }
+    lintOptions {
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs.add('-Xbootclasspath/p:app/libs/android.jar')
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    provided files('lib/android.jar')
+    provided files('lib/original-android --2.3.3.jar')
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile rootProject.ext.dependencies.appcompat
+    testCompile 'junit:junit:4.12'
+    //    版本升级的时候,需要用到下载问题,使用xutils下载,不会出现解析包错误,不会导致下载的过程中数据丢失
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'org.xutils:xutils:3.5.0'
+    compile project(':gameaircraft')
+    compile project(':lib_bugly')
+}
+

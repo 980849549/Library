@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.game.aircraft">
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.game.aircraft.GameActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.game.aircraft.StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.game.aircraft.WelActivity2"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

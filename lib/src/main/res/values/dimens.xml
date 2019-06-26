@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="popmenu_width">150.0dip</dimen>
+    <dimen name="popmenu_yoff">5.0dip</dimen>
+    <dimen name="base_list_title_text_size">16.0sp</dimen>
+    <dimen name="base_text_size_18sp">18.0sp</dimen>
+    <dimen name="text_size_16dip">16.0dip</dimen>
+    <dimen name="base_list_img_maxsize">100.0dip</dimen>
+    <dimen name="base_list_img_minsize">100.0dip</dimen>
+    <dimen name="dimens_size_54dip">54.0dip</dimen>
+    <dimen name="dimens_size_48dip">48.0dip</dimen>
+    <dimen name="dimens_size_17dip">17.0dip</dimen>
+    <dimen name="dimens_size_12dip">12.0dip</dimen>
+    <dimen name="dimens_size_1px">1.0px</dimen>
+    <dimen name="dimens_size_2px">2.0px</dimen>
+    <dimen name="cornered_radius">5.0dip</dimen>
+
+    <dimen name="refresh_header_height">80dp</dimen>
+</resources>

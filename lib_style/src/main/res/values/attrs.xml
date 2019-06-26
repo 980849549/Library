@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstSelectedTabTextColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstTabTextColor" format="color" />
+        <attr name="pstTabTextSize" format="dimension" />
+        <attr name="pstSelectedTabTextSize" format="dimension" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+
+
+    <attr name="ctbackground" format="color|reference"/>
+    <attr name="ctbackgroundDrawable" format="reference"/>
+    <attr name="cttextColor" format="color"/>
+    <attr name="ctItemBackground" format="color"/>
+
+    <declare-styleable name="zkMode">
+        <attr name="backgroundAttr" format="string|reference"/><!--切换背景属性-->
+        <attr name="textColorAttr" format="string|reference"/><!--切换字体颜色属性-->
+        <attr name="backgroundDrawableAttr" format="string|reference"/><!--切换背景图片属性-->
+    </declare-styleable>
+</resources>
